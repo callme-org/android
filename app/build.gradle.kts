@@ -35,7 +35,16 @@ android {
 
 dependencies {
 
+    implementProjects("core")
+    implementProjects("features")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+
 }
+
+fun DependencyHandlerScope.implementProjects(path: String) =
+    fileTree("$rootDir/$path")
+        .filter { file -> file.name.endsWith("kts") }
+        .forEach { file -> implementation(project(":${file.parentFile.name}")) }
