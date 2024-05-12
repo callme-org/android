@@ -8,6 +8,8 @@ ksp = "1.9.24-1.0.20"
 
 dagger = "2.51.1"
 
+retrofit = "2.11.0"
+
 [libraries]
 
 #android
@@ -19,8 +21,12 @@ material = { group = "com.google.android.material", name = "material", version.r
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 
+#network
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 

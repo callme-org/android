@@ -27,4 +27,8 @@ includeModules("core")
 fun includeModules(path: String) =
     fileTree("$rootDir/$path")
         .filter { file -> file.name.endsWith("kts") }
-        .forEach { file -> include(":${file.parentFile.name}") }
+        .forEach { file ->
+            val moduleName = ":${file.parentFile.name}"
+            include(moduleName)
+            project(moduleName).projectDir = file.parentFile
+        }
