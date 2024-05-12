@@ -22,6 +22,7 @@ dependencyResolutionManagement {
 rootProject.name = "callme"
 include(":app")
 includeModules("features")
+includeModules("core")
 
 fun includeModules(path: String) =
     fileTree("$rootDir/$path")
