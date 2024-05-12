@@ -21,4 +21,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "callme"
 include(":app")
- 
+includeModules("features")
+
+fun includeModules(path: String) =
+    fileTree("$rootDir/$path")
+        .filter { file -> file.name.endsWith("kts") }
+        .forEach { file -> include(":${file.parentFile.name}") }
